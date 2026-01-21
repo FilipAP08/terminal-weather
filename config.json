@@ -1,7 +1,7 @@
 {
   "models": "ecmwf_ifs",
-  "latitude": 51.2,
-  "longitude": 16.7,
+  "latitude": 51.1,
+  "longitude": 17.1,
   "options_hourly": {
     "temperature_2m": 1,
     "precipitation": 1,
@@ -24,4 +24,5 @@
   },
   "timeout": 60,
   "decimal_places_in_the_table": 2
+
 }
