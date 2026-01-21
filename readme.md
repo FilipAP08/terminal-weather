@@ -65,7 +65,7 @@ All required Python dependencies are installed automatically at runtime if missi
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/terminal-weather.git
+   git clone https://github.com/FilipAP08/terminal-weather.git
    cd terminal-weather
    ```
 
