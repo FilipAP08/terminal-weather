@@ -22,6 +22,9 @@ __version__ = "1.0.0"
 # See the LICENSE file in the project root for full license information.
 #
 
+#############################
+### FUNCTIONS DEFINITIONS ###
+#############################
 
 #installing dependencies if they're not present
 def safe_import(package_name, resource_name=None):
@@ -240,6 +243,7 @@ except KeyError:
 print(table)
 
 input("\nPress enter to continue...")
+
 
 
 exit()
