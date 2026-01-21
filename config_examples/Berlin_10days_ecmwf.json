@@ -1,0 +1,27 @@
+{
+  "models": "ecmwf_ifs",
+  "latitude": 52.5,
+  "longitude": 13.4,
+  "options_hourly": {
+    "temperature_2m": 1,
+    "precipitation": 1,
+    "relative_humidity_2m": 0,
+    "dew_point_2m": 0,
+    "rain": 0,
+    "snowfall": 1,
+    "snow_depth": 1,
+    "pressure_msl": 1,
+    "surface_pressure": 0,
+    "cloud_cover": 1,
+    "wind_speed_10m": 1,
+    "wind_direction_10m": 0,
+    "wind_gusts_10m": 0,
+    "cape": 0
+  },
+  "extras": {
+    "timezone": "Europe/Berlin",
+	"forecast_days": 10
+  },
+  "timeout": 60,
+  "decimal_places_in_the_table": 2
+}

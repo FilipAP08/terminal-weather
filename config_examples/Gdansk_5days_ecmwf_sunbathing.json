@@ -1,0 +1,18 @@
+{
+  "models": "ecmwf_ifs",
+  "latitude": 54.4,
+  "longitude": 16.3,
+  "options_hourly": {
+    "temperature_2m": 1,
+    "precipitation": 1,
+    "cloud_cover": 1,
+	"uv_index": 1,
+    "wind_speed_10m": 1
+  },
+  "extras": {
+    "timezone": "Europe/Berlin",
+	"forecast_days": 5
+  },
+  "timeout": 60,
+  "decimal_places_in_the_table": 2
+}
