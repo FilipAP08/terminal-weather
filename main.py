@@ -10,7 +10,7 @@ import argparse
 #license info
 __author__ = "Filip Piotrowski (FilipAP)"
 __license__ = "MIT"
-__version__ = "1.0.0"
+__version__ = "0.0.0"
 
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
@@ -247,3 +247,4 @@ input("\nPress enter to continue...")
 
 
 exit()
+
