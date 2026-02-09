@@ -10,7 +10,7 @@
     "wind_speed_10m": 1
   },
   "extras": {
-    "timezone": "Europe/Berlin",
+    "timezone": "Europe/Warsaw",
 	"forecast_days": 5
   },
   "timeout": 60,
