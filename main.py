@@ -10,7 +10,7 @@ import argparse
 #license info
 __author__ = "Filip Piotrowski (FilipAP)"
 __license__ = "MIT"
-__version__ = "0.0.0"
+__version__ = "0.0.1"
 
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
@@ -27,6 +27,7 @@ __version__ = "0.0.0"
 #############################
 
 #installing dependencies if they're not present
+#installing dependencies if they're not present
 def safe_import(package_name, resource_name=None):
     try:
         #try importing first
@@ -34,7 +35,11 @@ def safe_import(package_name, resource_name=None):
     except ImportError:
         #if there isn't the module, install it
         print(f"Installing {package_name}...")
-        subprocess.check_call([sys.executable, "-m", "pip", "install", package_name])
+        
+        #prepering to install ("--break-system-packages" to be changed in future updates)
+        pip_cmd = [sys.executable, "-m", "pip", "install", package_name, "--break-system-packages"]
+        
+        subprocess.check_call(pip_cmd)
         #after install we try again
         module = importlib.import_module(package_name)
 
@@ -110,7 +115,7 @@ except FileNotFoundError:
 with open("tz.txt", "r") as tzs:
     isTzReal = False
     for line in tzs:
-        if config["extras"]["timezone"] in line:
+        if config["extras"]["timezone"] == line.strip():
             isTzReal = True
 
 if isTzReal == False:
@@ -141,7 +146,7 @@ if args.offline:
 #create url and download, if offline mode not forced
 else:
     chosen = chosen.strip(",")
-    url = f"https://api.open-meteo.com/v1/forecast?latitude={config['latitude']}&longitude={config['longitude']}&hourly={chosen}&models={config['models']}&timeformat=unixtime{end}"
+    url = f"https://api.open-meteo.com/v1/forecast?latitude={config['latitude']}&longitude={config['longitude']}&hourly={chosen}&models={config['models']}{end}"
     print(f"Connecting and downloading from: {url}")
 
     #try connecting and downloading, and inform if and what went wrong
@@ -213,17 +218,14 @@ save_backup(response)
 
 #turn unixtime into human-readable time string
 t = plch["time"]
-dates = []
 
-offset = response.get("utc_offset_seconds", 0)
-for time in t:
-    local_time = int(time) + offset
-    dt_aware = datetime.fromtimestamp(local_time, timezone.utc)
-    dates.append(dt_aware.replace(tzinfo=None))
+
+for i in range(len(t)):
+    t[i] = str(t[i]).replace("T", "  ")
 
 #start creating table column by column
 table = PrettyTable()
-table.add_column("datetime", dates)
+table.add_column("datetime", t)
 
 for type in plch:
     if type != "time":
